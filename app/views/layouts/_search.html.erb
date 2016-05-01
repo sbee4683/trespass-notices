@@ -1,0 +1,48 @@
+<!-- search-panel -->
+<div class="panel panel-default search-panel">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search Trespass Notices</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag(trespasses_path, :method => "get", class: "form-horizontal") do %>
+      <div class="form-group row">
+        <div class="col-xs-3">
+          <%= label_tag :name, "Name:", class: "control-label" %>
+        </div>
+        <div class="col-xs-9">
+          <%= text_field_tag :name, params[:name], class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-3">
+          <%= label_tag :location, "Location:", class: "control-label" %>
+        </div>
+        <div class="col-xs-9">
+          <%= text_field_tag :location, params[:location], class: "form-control" %>
+        </div>
+      </div>
+       <div class="form-group row">
+        <div class="col-xs-3">
+          <%= label_tag :address, "Address:", class: "control-label" %>
+        </div>
+        <div class="col-xs-9">
+          <%= text_field_tag :address, params[:address], class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <div class="checkbox">
+            <label>
+              <%= check_box_tag :archived %> Include Archived
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <%end %>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<!-- admin-panel -->
+<div class="panel panel-default admin-panel">
+  <div class="panel-heading">
+    <h3 class="panel-title">Admin</h3>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">
+      <%= link_to "Users", "/useradmin", class: "list-group-item"%>
+      <a href="/adminMessages", class="list-group-item">Messages (<%= AdminMessage.count %>)</a>
+      <!-- <a href="#" class="list-group-item">Activity Log</a> -->
+    </div>
+  </div>
+</div>

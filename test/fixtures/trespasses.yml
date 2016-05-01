@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caseNum: 
+  locationName: MyString
+  locationAddr: MyString
+  subjName: MyString
+  subjDOB: 2016-04-10
+  dateOfNotification: 2016-04-10
+  dateOfExpiration: 2016-04-10
+  archived: false
+  modifiedBy: 1
+
+two:
+  caseNum: 
+  locationName: MyString
+  locationAddr: MyString
+  subjName: MyString
+  subjDOB: 2016-04-10
+  dateOfNotification: 2016-04-10
+  dateOfExpiration: 2016-04-10
+  archived: false
+  modifiedBy: 1

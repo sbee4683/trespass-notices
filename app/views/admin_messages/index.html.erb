@@ -1,0 +1,19 @@
+<h1>Administrator Messages</h1>
+<% if @adminMessages.any? %>
+<table class="table">
+    <tbody>
+        <% @adminMessages.each do |adminMessage| %>
+        <tr>
+            <td><%= adminMessage.msgType %> for </td>
+            <td><%= adminMessage.msg %></td>
+            <td>Requested <%= time_ago_in_words(adminMessage.created_at) %> ago.</td>
+            <td><%= link_to "Accept", new_user_path(email: adminMessage.msg), class: "btn btn-default btn-sm" %></td>
+            <td><%= link_to "Reject", adminMessage, method: :delete, 
+                data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% else %>
+<div class="alert alert-info" role="alert">There are no pending admin messages.</div>
+<% end %>

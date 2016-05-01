@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="panel panel-default login-panel">
+            <div class="panel-body">
+                <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+                    <div class="form-group">
+                        <%= f.label :email, "Enter your email to reset password" %>
+                        <%= f.text_field :email, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.submit "Request Account", class: "btn btn-primary" %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

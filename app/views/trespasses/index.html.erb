@@ -1,0 +1,56 @@
+<h1>Trespass Notices 
+    <% if dispatcher? || admin? %>
+        <%= link_to "+ Add New Trespass Notice", "trespasses/new", class: "btn btn-default", role: "button" %>
+    <% end %>
+</h1>
+<% if @trespasses.any? %>
+<%= will_paginate %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Location</th>
+            <th>Address</th>
+            <th>DR</th>
+            <th>Date of Notice</th>
+            <% if dispatcher? || admin? %>
+                <th></th>
+                <th></th>
+            <% end %>
+        </tr>
+    </thead>
+    <tbody>
+        <% @trespasses.each do |trespass| %>
+        <% if trespass.archived? %>
+        <tr class="archived">
+        <% else %>
+        <tr>
+        <% end %>
+            <td><%= trespass.subjName %></td>
+            <td><%= trespass.subjDOB.strftime("%m/%d/%Y") %></td>
+            <td><%= trespass.locationName %></td>
+            <td><%= trespass.locationAddr %></td>
+            <td><%= trespass.caseNum %></td>
+            <td><%= trespass.dateOfNotification.strftime("%m/%d/%Y") %></td>
+            <% if dispatcher? || admin? %>
+                <td><%= link_to "Edit", edit_trespass_path(trespass), class: "btn btn-default btn-sm" %></td>
+                <td>
+                    <%if !trespass.archived? %>
+                        <%= form_for(trespass) do |f| %>
+                            <%= f.hidden_field :archived, value: "1" %>
+                            <%= f.submit "Archive", class: "btn btn-default btn-sm" %>
+                        <% end %>
+                    <% end %>
+                </td>
+            <% end %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= will_paginate %>
+<% else %>
+<div class="alert alert-warning" role="alert">No Trespass Notices found</div>
+<% end %>
+<p>* Active Trespass Notices</br>
+<span class="archived">* Archived Trespass Notices</span></p>

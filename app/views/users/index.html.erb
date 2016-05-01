@@ -1,0 +1,30 @@
+<h1>Users <%= link_to "+ Add New User", "/users/new", class: "btn btn-default", role: "button" %></h1>
+<% if @users.any? %>
+<%= will_paginate %>
+<table class="table">
+    <thead>
+        <tr>
+            <th><%= sortable "name" %></th>
+            <th><%= sortable "username" %></th>
+            <th><%= sortable "email" %></th>
+            <th><%= sortable "usertype", "Type" %></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user.name %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.usertype %></td>
+            <td><%= link_to "Edit", edit_user_path(user), class: "btn btn-default btn-sm" %></td>
+            <td><%= link_to "Delete", user, method: :delete, 
+                data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= will_paginate %>
+<% end %>

@@ -1,0 +1,69 @@
+<h1>Edit Trespass Notice</h1>
+<%= form_for(@trespass, html: {class: "form-horizontal"}) do |f| %>
+    <%= render 'layouts/trespass_error_messages' %>
+
+    <div class="form-group row">
+        <div class="col-sm-2 text-right">
+            <%= f.label :caseNum, "Case Number: ", class: "control-label" %>
+        </div>
+        <div class="col-sm-5">
+            <%= f.text_field :caseNum, class: "form-control"  %>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 text-right">
+            <%= f.label :locationName, "Location: ", class: "control-label" %>
+        </div>
+        <div class="col-sm-5">
+            <%= f.text_field :locationName, class: "form-control"  %>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 text-right">
+            <%= f.label :locationAddr, "Address: ", class: "control-label" %>
+        </div>
+        <div class="col-sm-5">
+            <%= f.text_field :locationAddr, class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 text-right">
+            <%= f.label :subjName, "Name: ", class: "control-label" %>
+        </div>
+        <div class="col-sm-5">
+            <%= f.text_field :subjName, class: "form-control", placeholder: "Last, First Middle"  %>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 text-right">
+            <%= f.label :subjDOB, "Date of Birth: ", class: "control-label" %>
+        </div>
+        <div class="col-sm-5">
+            <%= f.date_field :subjDOB, class: "form-control", type: "date", placeholder: "yyyymmdd" %>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 text-right">
+            <%= f.label :dateOfNotification, "Notification Date: ", class: "control-label" %>
+        </div>
+        <div class="col-sm-5">
+            <%= f.date_field :dateOfNotification, class: "form-control", type: "date", placeholder: "yyyymmdd"  %>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 text-right">
+            <%= f.label :archived, "Status: ", class: "control-label" %>
+        </div>
+        <div class="col-sm-5">
+            <%= f.check_box :archived %>
+            <%= f.label :archived_true, "Archived" %></br>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 col-sm-offset-2">
+            <%= f.submit "Edit Notice", class: "btn btn-primary" %>
+        </div>
+    </div>
+
+  
+<% end %>
